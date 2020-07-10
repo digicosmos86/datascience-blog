@@ -1,17 +1,17 @@
 ---
 title: The Making of a Dashboard
 date: 2020-7-9
-tags: 
-  - data visualization
-  - technical
-  - dashboard
-  - Vue.js
-  - d3.js
+tags:
+- data visualization
+- technical
+- dashboard
+- Vue.js
+- d3.js
 author: Paul Xu
-featuredimg: '/datascience-blog/assets/img/dashboard-screenshot.png'
+featuredimg: "/assets/img/dashboard-screenshot.png"
 summary: Part 1. Background and decisions on tech stack.
----
 
+---
 ## Hello!
 
 This is the first of a series of technical blog posts that document how The Policy Lab at Brown University built [an interactive
