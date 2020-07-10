@@ -7,6 +7,7 @@ tags:
 - dashboard
 - Vue.js
 - d3.js
+- javascript
 author: Paul Xu
 featuredimg: "/assets/img/dashboard-screenshot.png"
 summary: Part 1. Background and decisions on tech stack.
