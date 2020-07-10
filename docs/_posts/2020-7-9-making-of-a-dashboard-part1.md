@@ -1,6 +1,6 @@
 ---
 title: The Making of a Dashboard
-date: 2020-7-9
+date: 2020-07-09 00:00:00 -0400
 tags:
 - data visualization
 - technical
@@ -9,7 +9,7 @@ tags:
 - d3.js
 - javascript
 author: Paul Xu
-featuredimg: "/assets/img/dashboard-screenshot.png"
+featuredimg: "/datascience-blog/assets/img/dashboard-screenshot.png"
 summary: Part 1. Background and decisions on tech stack.
 
 ---
