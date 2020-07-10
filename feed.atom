@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://digicosmos86.github.io/datascience-blog</id>
+    <title>Paul Xu&apos;s data science blog</title>
+    <updated>2020-07-10T20:15:54.511Z</updated>
+    <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
+    <link rel="alternate" href="https://digicosmos86.github.io/datascience-blog"/>
+    <link rel="self" href="https://digicosmos86.github.io/datascience-blog/feed.atom"/>
+    <subtitle>Blogs by Paul Xu, data scientist at The Policy Lab at Brown University</subtitle>
+    <entry>
+        <title type="html"><![CDATA[The Making of a Dashboard]]></title>
+        <id>https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/</id>
+        <link href="https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/">
+        </link>
+        <updated>2020-07-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Part 1. Background and decisions on tech stack.]]></summary>
+    </entry>
+</feed>
