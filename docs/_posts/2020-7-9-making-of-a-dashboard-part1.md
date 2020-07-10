@@ -1,6 +1,6 @@
 ---
 title: The Making of a Dashboard
-date: 2020-07-09 00:00:00 -0400
+date: 2020-07-09
 tags:
 - data visualization
 - technical
