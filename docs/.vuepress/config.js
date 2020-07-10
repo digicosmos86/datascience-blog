@@ -1,16 +1,17 @@
 module.exports = {
-  title: 'Mediumish',
+  title: 'Paul Xu\'s data science blog',
   base: '/',
   dest: 'public',
-  description: 'Mediumish theme with VuePress and Forestry',
-  logo: './assets/img/logo.png',
+  description: 'Blogs by Paul Xu, data scientist at The Policy Lab at Brown University',
+  logo: '/assets/img/logo.png',
+  logoAlt: '/assets/img/logo-bottom.png',
   theme: require.resolve('../../'),
   themeConfig: {
   authors: [
       {
-      name: 'Sal',
-      avatar: '/assets/img/sal.jpg',
-      link: 'https://wowthemes.net/donate',
+      name: 'Paul Xu',
+      avatar: '/assets/img/myAvatar.png',
+      link: 'https://thepolicylab.brown.edu/team/paul-xu/',
       linktext: 'Follow',
       },
       {
@@ -44,7 +45,7 @@ module.exports = {
         },
         {
           type: 'linkedin',
-          link: '#',
+          link: 'https://www.linkedin.com/in/paulxubc/',
         },
         {
           type: 'mail',
@@ -60,17 +61,17 @@ module.exports = {
         },
         {
           type: 'twitter',
-          link: 'https://twitter.com/wowthemesnet',
+          link: 'https://twitter.com/paulxu_bc',
         },
         {
           type: 'web',
-          link: '#',
+          link: 'https://thepolicylab.brown.edu/team/paul-xu/',
         }
       ],
       copyright: [
         {
-          text: 'Licensed MIT.',
-          link: 'https://bootstrapstarter.com/license/',
+          text: 'Copyright © Paul Xu 2020.',
+          link: '#',
         },
         {
           text: 'Made with Mediumish - free Vuepress theme',
@@ -80,17 +81,17 @@ module.exports = {
     },
 
     sitemap: {
-      hostname: 'https://github.com/wowthemesnet/vuepress-theme-mediumish/'
+      hostname: 'https://digicosmos86.github.io/datascience-blog'
     },
     comment: {
-      service: 'disqus',
-      shortname: 'demowebsite',
+      service: 'Github Pages',
+      shortname: 'blogsite',
     },
     newsletter: {
       endpoint: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&id=8c3d2d214b'
     },
     feed: {
-      canonical_base: 'https://github.com/wowthemesnet/vuepress-theme-mediumish/',
+      canonical_base: 'https://digicosmos86.github.io/datascience-blog',
     },
     smoothScroll: true
   },

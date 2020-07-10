@@ -7,14 +7,14 @@
 
 @import '../node_modules/bootstrap-4-stylus/bootstrap.styl'
 
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700&display=swap")
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap")
 
-$green = #03a87c
+$pink = #eb6073
 $color_1 = rgba(0, 0, 0, 0.54)
 $color_2 = rgba(0, 0, 0, 0.44)
 $color_3 = rgba(0, 0, 0, 0.8)
-$primary_font_family = 'Source Sans Pro'
-$second_font_family = 'Merriweather'
+$primary_font_family = "Source Sans Pro"
+$second_font_family = 'PT Serif'
 body
   font-family: $primary_font_family
   padding-top: 120px
@@ -27,15 +27,16 @@ body
 img
   max-width: 100%
 a
-  color: $green
+  color: $pink
 nav
   border-bottom: 1px solid rgba(0, 0, 0, 0.125)
 .navbar-brand
-  font-size: 1.6rem
+  font-size: 1.4rem
   font-weight: 700
   letter-spacing: -.5px
   img
-    width: 30px
+    width: 60px
+    margin-right: 15px
 .navbar
   padding: .5rem 1.5rem
   .tagline
@@ -43,9 +44,9 @@ nav
 .nav-link
   margin-left: 6px
   margin-right: 6px
-  font-size: 0.95rem
+  font-size: 1rem
 .dropdown-item
-  font-size: 0.95rem
+  font-size: 1rem
 .navbar-nav
   display: flex
   vertical-align: middle
@@ -170,7 +171,7 @@ nav
   transition: all .2s
   color:inherit
   &:hover
-    color: $green
+    color: $pink
     text-decoration:none
 .article-head, .content__default
   font-family: 'Merriweather'
@@ -224,10 +225,18 @@ code
     color: #fff
     transition: all .2s
     &:hover
-      color: #fff
+      color: $pink
       transition: all .2s
+      text-decoration: none
   p
     margin-bottom: 10px
-  .logofooter
-    width: 50px
-
+.logofooter
+  width: 50px
+.contact-item
+  display: inline
+  margin-left: 5px 
+.footer-subtitle
+  margin-top: 1rem
+  color: white
+  font: 1.2rem $primary_font_family
+  font-weight: 700

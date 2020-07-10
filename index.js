@@ -7,7 +7,8 @@ module.exports = themeConfig => {
    * Default theme configuration
    */
   themeConfig = Object.assign(themeConfig, {
-    logo: '/assets/img/logo.png',
+    logo: '/assets/img/logo.svg',
+    logoAlt: '/assets/img/logo-white.png',
     nav: themeConfig.nav || [
       {
         text: 'Blog',
@@ -45,7 +46,7 @@ module.exports = themeConfig => {
       },
     ],
     globalPagination: {
-      lengthPerPage: 6,
+      lengthPerPage: 9,
     },
   }
 

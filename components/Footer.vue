@@ -1,34 +1,41 @@
 <template>
-<footer class="themefooter">
-
-<div class="container">
-<div class="row justify-content-between">
-<div class="col">
-<a href="/"><img class="logofooter" :src="($withBase)($themeConfig.logo)"></a>
-</div>
-<div class="col text-right">
-<ul v-if="contact" class="list-unstyled">
-<li
-v-for="item in contact"
-:key="item.iconComponent"
-class="contact-item"
->
-<NavLink :link="item.link">
-<component :is="item.iconComponent"></component>
-{{ item.text }}
-</NavLink>
-</li>
-</ul>
-<ul v-if="copyright" class="list-unstyled">
-<li v-for="item in copyright" :key="item.text" class="copyright-item">
-<NavLink :link="item.link">{{ item.text }}</NavLink>
-</li>
-</ul>
-</div>
-</div>
-</div>
-
-</footer>
+  <footer class="themefooter">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col">
+          <a href="/">
+            <img class="logofooter" :src="$withBase($themeConfig.logoAlt)" />
+          </a>
+          <div class="footer-subtitle">
+            A Data Science Blog by Paul Xu
+          </div>
+        </div>
+        <div class="col text-right">
+          <ul v-if="contact" class="list-unstyled">
+            <li
+              v-for="item in contact"
+              :key="item.iconComponent"
+              class="contact-item"
+            >
+              <NavLink :link="item.link">
+                <component :is="item.iconComponent"></component>
+                {{ item.text }}
+              </NavLink>
+            </li>
+          </ul>
+          <ul v-if="copyright" class="list-unstyled">
+            <li
+              v-for="item in copyright"
+              :key="item.text"
+              class="copyright-item"
+            >
+              <NavLink :link="item.link">{{ item.text }}</NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -88,6 +95,12 @@ export default {
       switch (contactType) {
         case 'github':
           return 'GithubIcon'
+        case 'linkedin':
+          return 'LinkedinIcon'
+        case 'twitter':
+          return 'TwitterIcon'
+        case 'web':
+          return 'GlobeIcon'
       }
     },
   },
