@@ -62,7 +62,6 @@ export default {
     },
   },
 };
-
 ```
 
 The above code snippet shows that the component receives as props the 211 data loaded from a `.csv` file and a filter objects that contains all of the parameters of the filter. Whenever the component is created (i.e. when the `created()` lifecycle method is called), the `filterData` method is called and the result is stored in the component's state. Then the `initChart()` method is called, returning in a chart object, which is also saved to the component's state. This chart objects itself has an `updateChart` method, which can be used to update the chart. This follows the d3.js design pattern described [in this article](https://medium.com/d3js-tutorials/a-d3-js-design-pattern-16a6503dc86f) to keep d3 code centralized in the Vue component.
@@ -73,7 +72,7 @@ Each component also has a deep `watcher` that watches the filter props. Whenever
 
 Making a map (choropleth) with d3.js is a widely covered subject. There are many tutorials avaiable that walks you through how to create a map using `geojson`/`topojson` in d3. For example, this [Observable notebook](https://observablehq.com/@d3/choropleth) by d3's creator Mike Bostock contains code for creating choropleths in d3 v5. [This article](https://datawanderings.com/2018/10/28/making-a-map-in-d3-js-v-5/) is also a great tutorial for creating such maps. What I want to cover in this section is a few things that got me stuck for hours.
 
-### 1. Find the correct `geojson/topojson` for the base map
+### 1. Finding the correct `geojson/topojson` for the base map
 
 Typically you should have no difficulties finding a `geojson`/`topojson` file that contains the correct border outlines for the geographical information that you want to plot. However, these files are made to be very precise and tend to be too big for a project like this. The `geojson` file that I got at first from the [RI GIS website](http://www.rigis.org/datasets/municipalities-1997) was over 6MB. I tried to use [MapShaper](https://mapshaper.org/) to reduce the file size but d3 had problems reading the files it produced. I eventually found a `topojson` file that was small enough. So, you might need to spend some time finding the right files for the base map, especailly if you are focusing on a state or a smaller region.
 
@@ -85,5 +84,10 @@ We will need a projection function that projects geographic coordinates to plana
 
 Another problem that I encontered when mapping the 211 call data is this so-called Modifiable area unit problem (MAUP), which, in this context, means that the number of calls plotted on a map is a reflection of that area's population density. In this case, since Providence is RI's only population center, naturally many more 211 calls would originate from Providence, which results in a map with only Providence highlighted. I modified the color scale to reflect the number of calls per 1000 capita to preserve some interpretability. I also welcome any suggestions/comments on other ways to produce maps that are less biased by population density.
 
-## Stacked Bar Chart with Smooth Transitions
+## Stacked Area Chart with Smooth Transitions
 
+As with the Map, we are not going to be concerned with how to create a stacked area chart in d3.js. [This great tutorial](https://www.d3-graph-gallery.com/graph/stackedarea_template.html) covers this topic thoroughly and nicely. Also, I would recommend that you use a library such as `vega`, `vega-lite`, `chart.js`, `c3.js`, `apex charts` and any other JavaScript charting library to create it, because while creating the area chart itself is not difficult, creating informative tooltips can be quite involved. Here, we are using plain d3 for two reasons. First, there are too many categories in the data and we would like to only display major categories when all categories are shown. That means we will need to customize the legend a little bit. Second, we also want to create smooth transition animations when the data changes. We cannot achieve such deep customization with a library.  The rest of this section will focus on how we created the smooth transition animations for the stacked area chart shown below. We will also touch upon some gotchas in data wrangling in the browser with d3, and how to display time series data properly with time scales.
+
+![](/datascience-blog/assets/img/stackbarchart.gif)
+
+### 
