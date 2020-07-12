@@ -27,4 +27,5 @@ fields:
   name: summary
   label: summary
 pages:
+- docs/_posts/the-making-of-a-dashboard-1.md
 - docs/_posts/the-making-of-a-dashboard.md
