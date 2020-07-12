@@ -13,18 +13,18 @@
             "date_modified": "2020-07-09T00:00:00.000Z"
         },
         {
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard/",
+            "title": "The Making of a Dashboard",
+            "summary": "Part 2. Sketching the skeleton of the dashboard",
+            "date_modified": "2020-07-10T00:00:00.000Z"
+        },
+        {
             "id": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-1/",
             "url": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-1/",
             "title": "The Making of a Dashboard",
             "summary": "Part 3. Render the visualizations with d3.js",
             "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/stackbarchart.gif",
-            "date_modified": "2020-07-10T00:00:00.000Z"
-        },
-        {
-            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard/",
-            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard/",
-            "title": "The Making of a Dashboard",
-            "summary": "Part 2. Sketching the skeleton of the dashboard",
             "date_modified": "2020-07-10T00:00:00.000Z"
         }
     ]
