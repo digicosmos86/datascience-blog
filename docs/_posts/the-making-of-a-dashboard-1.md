@@ -90,4 +90,98 @@ As with the Map, we are not going to be concerned with how to create a stacked a
 
 ![](/datascience-blog/assets/img/stackbarchart.gif)
 
-### 
+### Creating smooth transitions
+
+d3 provides a `transition` function that allows smooth transition animations when the underlying data of the visualizations changes. [This article](https://observablehq.com/@d3/streamgraph-transitions) shows a really cool transition with a streamgraph. With the `transition()` and `delay()` functions, it is very easy to create such animations. However, the transition breaks down when the number of data points on the x-axis changes. For example, when a user wants to see the data from last month instead of last week. The reason is that when there is no changes in the number of data points on the x-axis, d3 can figure out that each data point is only going up and down and interpolate the intermediate points between the start and end positions for each data point. However, when this prerequisite no longer holds, d3 will have trouble interpolating the intermediate position for the shapes to change, resulting in unwieldy transition animations that look weird.
+
+The solution to this is to tell d3 to hold the points on both ends of the area charts, these points can only go up and down. Then the rest of the algorithm will figure out how to interpolate the positions of other points, so that the transition looks better. We used the `d3-interpolate-path` library for this task. To use this library, first install it with npm.
+
+``` bash
+    npm install -s d3-interpolate-path
+```
+
+Then, import the library to the code for stacked area chart with:
+
+``` javascript
+import { interpolatePath } from "d3-interpolate-path";
+```
+
+Next, when the data changes, pass the interpolation function to
+
+``` javascript
+stacks.join(
+  (enter) =>
+    enter
+      .append("path")
+      .attr("class", "area")
+      .attr("fill", (d) => color(d.key))
+      .attr("d", area)
+      .attr("opacity", 0)
+      .on("mousemove", handleMouseOver)
+      .on("mouseout", handleMouseOut)
+      .call((enter) => enter.transition(t).attr("opacity", 1)),
+  (update) =>
+    update
+      .attr("fill", (d) => color(d.key))
+      .call((update) =>
+        update
+          .transition()
+          .duration(500)
+          .attr("opactiy", 1)
+          .attrTween("d", function (d) {
+            let previous = d3.select(this).attr("d");
+            let current = area(d);
+            return interpolatePath(previous, current, excludeSegment);
+          })
+      ),
+  (exit) => exit.transition().duration(500).attr("opacity", 0).remove()
+);
+
+function excludeSegment(a, b) {
+  return a.x === b.x;
+}
+```
+
+The above code uses d3 v5's `selection.join()` function to update the rendered chart using d3's enter, update, and exit pattern. [This Observable notebook](https://observablehq.com/@d3/selection-join) explains in detail how it works, but the TL;DR version it is, it accepts 3 functions that describes what to do with new data points (enter), what to do with data points that have changed (update), and what to do with data points that no longer exists (exit). `interpolatePath` was used in the callback that handles updates. We first use `selection.attrTween()` that accepts a function that describes how the tweening between the changes in an specific attribute of a selection should happen. The `excludeSegment` function defines that as long as the line segment lies on both ends of the area (any two points `a`, `b` whose coordinates satisfy `a.x === b.x`), then these points should be excluded in the interpolation of the transition, resulting in smooth transitions even when the numbers of data points change.
+
+### Wrangling data in d3
+
+Since we are not using any backend, any data wrangling such as group aggregations are done with d3. Although d3 provides lots of functions for performing such operations, there is not a data structure such as `pandas.DataFrame` in Python or `data.frame` in R that easily and efficiently does group aggregations. In this context, we want to aggregate for each day, in each category, how many calls were received. This would have been a simple call to `df.groupby().sum()` in Python or similar functions in `dplyr` in R. d3 provides a `d3.nest()` function for us to do the same thing, but it's not very straightforward:
+
+``` javascript
+let nestedData = d3
+  .nest()
+  .key(d => d.date)
+  .sortKeys(d3.ascending)
+  .key(d => d.type)
+  .sortKeys(d3.ascending)
+  .rollup(leaf => d3.sum(leaf, d => +d.count))
+  .map(rawData)
+  .entries();
+```
+
+[This article](http://bl.ocks.org/phoebebright/raw/3176159/) provides a few good examples on how nesting works in d3.js.  to build the stacked area chart, we created a two-layer nest, with `date` and `type` as keys. This step is similar to `df.groupby(['date', 'type'])` in pandas in Python. Then, `nest()` provides a `rollup` function to collect results on leaves in this data structure, which are arrays of objects that have the same `date`s and `type`s . Here, we use `d3.sum()` to sum up the number of calls (stored in `count`). Then we use `d3.nest().map()` on the raw data to return a `map` data structure. Lastly, we use the `entries()` function of the JavaScript `map` data structure to obtain an array of counts for each type of calls on each day. This array can then be passed to d3's `d3.stack()` function to create a stacked data structure that can be used to create the stacked area chart.
+
+### To display dates correctly
+
+Unlike Python, JavaScript does not have a dedicated type for dates. The `Date()` object actually stores both date and time as an integer, and it can behave slightly unexpectedly:
+
+    > new Date("2020-06-01")
+    2020-06-01T00:00:00.000Z
+    > new Date("2020/06/01")
+    2020-06-01T04:00:00.000Z
+
+The above code was run in node.js. However, in Chrome, what we got was:
+
+    new Date("2020-06-01")
+    Sun May 31 2020 20:00:00 GMT-0400 (Eastern Daylight Time)
+    new Date("2020/06/01")
+    Mon Jun 01 2020 00:00:00 GMT-0400 (Eastern Daylight Time)
+
+This might cause some unexpected bugs. My recommendation is to use `moment.js` for date operations whenever possible, and use UTC time for dates. This means using `d3.scaleUtc()` for the x-axis for the stacked bar chart. Otherwise, each data points will be rendered slightly before the ticks for each date, since a string like `2020-06-01` is seen as 8pm of the previous day locally (Eastern Daylight Time).
+
+## Next up
+
+In this post we discussed in details the designs that make d3 and Vue work in harmony and the gotchas in building the data visualizations. Based on these ideas, we created a first prototype for the UWRI team and internally for the rest of The Policy Lab for their feedback. The next post will discuss the UI/UX improvement we made to the dashboard based on the feedback that we received.
+
+[Part 4. UI/UX Improvements from User Feedback](#)
