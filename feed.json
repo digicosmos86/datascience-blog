@@ -6,32 +6,33 @@
     "description": "Blogs by Paul Xu, data scientist at The Policy Lab at Brown University",
     "items": [
         {
-            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/",
-            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/",
-            "title": "The Making of a Dashboard",
-            "summary": "Part 1. Background and decisions on tech stack.",
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/09/the-making-of-a-dashboard-part1/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/09/the-making-of-a-dashboard-part1/",
+            "title": "The Making of a Dashboard - Part 1",
+            "summary": "Background and decisions on tech stack.",
+            "image": "https://digicosmos86.github.io/datascience-blog/docs/.vuepress/public/assets/img/initial-211-dashboard-sketch-v1-1.jpg",
             "date_modified": "2020-07-09T00:00:00.000Z"
         },
         {
-            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard/",
-            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard/",
-            "title": "The Making of a Dashboard",
-            "summary": "Part 2. Sketching the skeleton of the dashboard",
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-part2/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-part2/",
+            "title": "The Making of a Dashboard - Part 2",
+            "summary": "Sketching the skeleton of the dashboard.",
             "date_modified": "2020-07-10T00:00:00.000Z"
         },
         {
-            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-1/",
-            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-1/",
-            "title": "The Making of a Dashboard",
-            "summary": "Part 3. Render the visualizations with d3.js",
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/11/the-making-of-a-dashboard-part3/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/11/the-making-of-a-dashboard-part3/",
+            "title": "The Making of a Dashboard - Part 3",
+            "summary": "Rendering the visualizations with d3.js.",
             "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/stackbarchart.gif",
-            "date_modified": "2020-07-10T00:00:00.000Z"
+            "date_modified": "2020-07-11T00:00:00.000Z"
         },
         {
-            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/13/the-making-of-a-dashboard-2/",
-            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/13/the-making-of-a-dashboard-2/",
-            "title": "The Making of a Dashboard",
-            "summary": "Part 4. UI/UX refinement from user feedback",
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/13/the-making-of-a-dashboard-part4/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/13/the-making-of-a-dashboard-part4/",
+            "title": "The Making of a Dashboard - Part 4",
+            "summary": "UI/UX refinements from user feedback.",
             "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/dashboard-annotated.png",
             "date_modified": "2020-07-13T00:00:00.000Z"
         }
