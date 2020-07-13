@@ -1,25 +1,25 @@
 ---
 tags:
-- Vue.js
-- design
-- d3.js
-- visualization
+- data visualization
 - dashboard
-title: The Making of a Dashboard
+- Vue.js
+- d3.js
+- javascript
+- design pattern
+title: The Making of a Dashboard - Part 2
 date: 2020-07-10
 author: Paul Xu
 featuredimg: "/datascience-blog/assets/img/initial-211-dashboard-sketch-v1-1.jpg"
-summary: Part 2. Sketching the skeleton of the dashboard
+summary: Sketching the skeleton of the dashboard.
 
 ---
 In the previous [post](https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/) post we covered the background and the decisions on what tech stacks we are using for the [United Way Rhode Island 211 dashboard](https://thepolicylab.github.io). This post will describe how we used `Vue.js` to build the architecture based on the awesome sketch of [Ben Guhin Delphine](https://thepolicylab.brown.edu/team/ben-guhin-delphine/) in the featured image above.
 
 Links to other posts in this series:
 
-* [Part 1. Decisions on Tech Stack](https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/)
-* [Part 3. Making the Visualizations with d3.js](#)
-* [Part 4. UI/UX Improvements from User Feedback](#)
-* [Part 5. Wrangling Data for the App](#)
+* [Part 1. Decisions on Tech Stack](./the-making-of-a-dashboard-part1.md)
+* [Part 3. Rendering the Visualizations with d3.js](./the-making-of-a-dashboard-part3.md)
+* [Part 4. UI/UX Refinements from User Feedback](./the-making-of-a-dashboard-part4.md)
 
 ## The Overall Architecture of the Dashboard App
 
@@ -99,4 +99,4 @@ Note that we wrote an event handler for when the value changes in the drop-down.
 
 In this post we covered the overall architecture of the dashboard app and a few details in creating an outline of the app. In the next post, we will describe how we made the data visualizations.
 
-[Part 3. Making the Visualizations with d3.js](#)
+[Part 3. Making the Visualizations with d3.js](./the-making-of-a-dashboard-part3.md)

@@ -5,23 +5,22 @@ tags:
 - JavaScript
 - visualization
 - dashboard
-- Vue
-- d3
-title: The Making of a Dashboard
+- Vue.js
+- d3.js
+title: The Making of a Dashboard - Part 4
 date: 2020-07-13
 author: Paul Xu
 featuredimg: "/datascience-blog/assets/img/first-prototype.png"
-summary: 'Part 4. UI/UX refinement from user feedback '
+summary: UI/UX refinements from user feedback.
 
 ---
 In [the previous post](https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-1/) we discussed general design patterns that put Vue and d3 together. This post will focus on how we improved the UI/UX design of the first prototype (shown above) according to the feedback from the UWRI team and the rest of The Policy Lab team.  We will also discuss the improvements that made the site faster and more responsive.
 
 Links to other posts in the series:
 
-* [Part 1. Background and Decisions on Tech Stack](/datascience-blog/2020/07/09/making-of-a-dashboard-part1/)
-* [Part 2. Building the Skeleton of the App with Vue.js](/datascience-blog/2020/07/10/the-making-of-a-dashboard/)
-* [Part 3. Rendering the Visualizations with d3.js](/datascience-blog/2020/07/10/the-making-of-a-dashboard-1/)
-* [Part 5. Wrangling Data for the App](#)
+* [Part 1. Background and Decisions on Tech Stack](./the-making-of-a-dashboard-part1.md)
+* [Part 2. Building the Skeleton of the App with Vue.js](./the-making-of-a-dashboard-part2.md)
+* [Part 3. Rendering the Visualizations with d3.js](./the-making-of-a-dashboard-part3.md)
 
 ## Feedback from the client
 
@@ -36,7 +35,7 @@ We showed the first prototype to the UWRI team and also internally to the rest o
 
 Out goes prototype v0.01, in comes Prototype v0.1 (music...)
 
-![](/datascience-blog/assets/img/dashboard-annotated.png)
+![dashboard screenshot with annotations](/datascience-blog/assets/img/dashboard-annotated.png)
 
 The above image shows the improvements that we made to the very first prototype of the dashboard after receiving user feedback. Some of the major ones are:
 
@@ -75,8 +74,7 @@ After we switched to the wide format, the size of the data file was reduced from
 // ]
 
 // Create an array of empty objects, whose length is the number of days present in data
-let nestedData = rawData[0].values.map(d => {
-  d;
+let nestedData = rawData[0].values.map(() => {
   return {};
 });
 
@@ -110,8 +108,6 @@ window.addEventListener("resize", () =>
 );
 ```
 
-## Next up:
+## Wrapping up:
 
-This wraps the process in which we designed and built the [211 Dashboard](https://thepolicylab.github.io/UW-211) for United Way of Rhode Island. The next, and last part of the blog will discuss how wrangled and cleaned the data for the dashboard.
-
-* [Part 5. Wrangling Data for the App](#)
+This wraps the process in which we designed and built the [211 Dashboard](https://thepolicylab.github.io/UW-211) for United Way of Rhode Island. We hope you enjoyed reading about this process! If you have any comments/suggestions, please feel free to discuss with us in the discussion board!

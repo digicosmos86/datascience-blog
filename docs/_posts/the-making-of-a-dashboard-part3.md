@@ -1,26 +1,26 @@
 ---
 tags:
-- visualization
+- data visualization
+- dashboard
+- Vue.js
 - d3.js
-- design pattern
+- javascript
 - animation
 - transition
-- map
-title: The Making of a Dashboard
-date: 2020-07-10
+title: The Making of a Dashboard - Part 3
+date: 2020-07-11
 author: Paul Xu
 featuredimg: "/datascience-blog/assets/img/stackedbar1.png"
-summary: Part 3. Render the visualizations with d3.js
+summary: Rendering the visualizations with d3.js.
 
 ---
 In this post, we will cover the details in creating the data visualizations used in [the United Way Rhode Island 211 Dashboard](https://thepolicylab.github.io/UW-211) to reveal patterns in 211 calls. [The previous post](https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard/) described in detail the overall architecture of the app and how data is persisted as state in the Vue app. This post focuses more on the gotchas using d3.js to create interactive data visualizations.
 
 Links to other posts in the series:
 
-* [Part 1. Background and Decisions on Tech Stack](/datascience-blog/2020/07/09/making-of-a-dashboard-part1/)
-* [Part 2. Building the Skeleton of the App with Vue.js](/datascience-blog/2020/07/10/the-making-of-a-dashboard/)
-* [Part 4. UI/UX Improvements from User Feedback](#)
-* [Part 5. Wrangling Data for the App](#)
+* [Part 1. Background and Decisions on Tech Stack](./the-making-of-a-dashboard-part1.md)
+* [Part 2. Building the Skeleton of the App with Vue.js](./the-making-of-a-dashboard-part2.md)
+* [Part 4. UI/UX Refinements from User Feedback](./the-making-of-a-dashboard-part4.md)
 
 ## General Design Patterns
 
@@ -184,4 +184,4 @@ This might cause some unexpected bugs. My recommendation is to use `moment.js` f
 
 In this post we discussed in details the designs that make d3 and Vue work in harmony and the gotchas in building the data visualizations. Based on these ideas, we created a first prototype for the UWRI team and internally for the rest of The Policy Lab for their feedback. The next post will discuss the UI/UX improvement we made to the dashboard based on the feedback that we received.
 
-[Part 4. UI/UX Improvements from User Feedback](#)
+[Part 4. UI/UX Refinements from User Feedback](./the-making-of-a-dashboard-part4.md)
