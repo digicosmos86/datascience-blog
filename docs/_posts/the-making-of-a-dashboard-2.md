@@ -35,3 +35,83 @@ We showed the first prototype to the UWRI team and also internally to the rest o
 ## The Revamped Dashboard
 
 Out goes prototype v0.01, in comes Prototype v0.1 (music...)
+
+![](/datascience-blog/assets/img/dashboard-annotated.png)
+
+The above image shows the improvements that we made to the very first prototype of the dashboard after receiving user feedback. Some of the major ones are:
+
+1. **Layout:** We switched to displaying the two charts horizontally to make better use of the space on the page. That way the interactions between the visualizations are more visible. This design is also optimized for 16:9 screen ratios that most laptops use.
+2. **More context:** The addition of chart titles, subtitles, explanatory texts, and notes give the users more context of what they are looking at, and the range of data that are being visualized. A bit redundancy here improves readability and clarity.
+3. **High-level information:** The new table on top of the map gives users an overview from 10,000-feet simple statistics such as total numbers of calls.
+4. **Readability improvements:** The minor categories that are not visualized in the stacked area chart by default are now hidden. The users now have the choice to unhide these categories if they so wish to. Texts how have consistent font sizes to increase readability. Category colors are now adjusted to be more distinguishable.
+5. **Navigational aids:** Two buttons were added to the visualizations to allow users to go back to the initial states of the visualizations so they do not have to use the drop-down filters for the same purpose.
+
+## Other Under-the-hood Improvements
+
+### Speed improvement
+
+One thing that significantly impact user experience with a Web app is the performance. Unfortunately, because the dashboard app has to load the 211 call data file before it every component starts to render, there can be 0.5- to 2-second delay before the charts start to show up, a noticeable lag which can significantly affect user experience. Are there ways to reduce this lag?
+
+Yes! The "tidy/long" data format is the culprit here. The long format, although often preferred in analytics with Python or R, it is more preferable to use the wide format in this context. There are a few reasons for this:
+
+1. It is easier to operate in rows in JavaScript, as opposed to `DataFrames` in Python or `data.frame` in R, which are optimized for column-based operations. By default, d3 reads rows of a `csv` as elements of an array. Therefore, it is much easier to operate within each element of the array with functions such as `map` or `filter`.
+2. The data file for the wide format is smaller. The long format introduces redundancy in the data where category names can be repeated. That usually is not a problem in Python or R, since they have mechanisms to represent categorical variables, but in a Web app, bloated data files affects speed.
+3. Wide format handles missing data better. JavaScript (d3) does not handle missing data well. Consequently, missing data still need to be present in long format data files rows with zero values, which further increases file size.
+
+After we switched to the wide format, the size of the data file was reduced from 2,518KB to a mere 131KB. We did have to rewrite some code in the `filterData` functions for the component for each chart, but that also became easier. No longer did we need to use `d3.nest()` function to produce aggregates for the stacked area chart. We did need to reshape the wide format into a list of objects that can be used with `d3.stack()` to produce the data for the stacked area chart, but that can be created on-the-fly with the following two lines:
+
+``` javascript
+// data format before:
+// [
+//   {
+//     type: "COVID-19 Control",
+//     city: "Providence",
+//     values: [2, 5, 4. 7, 8 ...] //number of calls on each day from 2020-03-01
+//   },
+//   {
+//     ...
+//   }
+//   ...
+// ]
+
+// Create an array of empty objects, whose length is the number of days present in data
+let nestedData = rawData[0].values.map(d => {
+  d;
+  return {};
+});
+
+// fill each empty object in the array with type: number of calls pairs
+rawData.forEach(
+  row => row.values.forEach(
+    (d, i) => nestedData[i][row.key] = d
+  )
+);
+
+// data format after:
+// [
+//   { "COVID-19 Control": 2, "Food/Meals": 10, ...}, 
+//   { "COVID-19 Control": 3, "Food/Meals": 5, ...},
+//   ...
+// ]
+```
+
+With these changes, the dashboards now loads instantly and is more snappy than ever, due to the reduced load in reading and restructuring the data.
+
+### Responsive design
+
+From Day 1, we wanted the dashboard to be responsive. While it is easy to make the dashboard layout to be responsive, it is not easy to make the visualizations responsive. We used two techniques to make the charts responsive:
+
+1. For the map, we simply added a `viewBox` attribute to the map's root `SVG` element. Then the size of the charts will be adjusted. [This blog](https://medium.com/@louisemoxy/a-simple-way-to-make-d3-js-charts-svgs-responsive-7afb04bc2e4b) provides an excellent explanation on how the `viewBox` attribute works.
+2. For the stacked area charts, we added an `eventListener` to the `window` object, so that whenever the size of the wrapper changes, the chart will re-render itself. This is done through vanilla JavaScript:
+
+``` javascript
+window.addEventListener("resize", () =>
+    this.chart.updateChart(this.layoutData, this.options)
+);
+```
+
+## Next up:
+
+This wraps the process in which we designed and built the [211 Dashboard](https://thepolicylab.github.io/UW-211) for United Way of Rhode Island. The next, and last part of the blog will discuss how wrangled and cleaned the data for the dashboard.
+
+* [Part 5. Wrangling Data for the App](#)
