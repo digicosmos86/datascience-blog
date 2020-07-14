@@ -30,7 +30,7 @@ This project is a first step in the collaboration between The Policy Lab and Uni
 
 After communicating with the team at United Way of Rhode Island, [Ben Guhin Delphine](https://thepolicylab.brown.edu/team/ben-guhin-delphine/), Head of Design at The Policy Lab, created the first sketch of the design (see below). This first draft includes a stacked area chart, a choropheth map, and a few dropdowns that allow the users to filter the data. The stacked area chart, compared with line charts, helps users to see trends in call volumes not only across categories but also in total. Mapping calls to the geographical regions where they originate also reveals needs for resources in across areas.
 
-![first sketch of design](/docs/.vuepress/public/assets/img/initial-211-dashboard-sketch-v1-1.jpg)
+![](/datascience-blog/assets/img/initial-211-dashboard-sketch-v1-1.jpg)
 
 ## Decisions on tech stack
 
