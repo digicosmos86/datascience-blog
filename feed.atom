@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://digicosmos86.github.io/datascience-blog</id>
     <title>Paul Xu&apos;s data science blog</title>
-    <updated>2020-07-14T18:45:02.631Z</updated>
+    <updated>2020-07-15T19:18:37.393Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://digicosmos86.github.io/datascience-blog"/>
     <link rel="self" href="https://digicosmos86.github.io/datascience-blog/feed.atom"/>
@@ -37,6 +37,6 @@
         <link href="https://digicosmos86.github.io/datascience-blog/2020/07/13/the-making-of-a-dashboard-part4/">
         </link>
         <updated>2020-07-13T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[UI/UX refinements from user feedback.]]></summary>
+        <summary type="html"><![CDATA[UI/UX refinements from stakeholder feedback.]]></summary>
     </entry>
 </feed>
