@@ -19,7 +19,7 @@ Links to other posts in this series:
 
 * [Part 1. Decisions on Tech Stack](./the-making-of-a-dashboard-part1.md)
 * [Part 3. Rendering the Visualizations with d3.js](./the-making-of-a-dashboard-part3.md)
-* [Part 4. UI/UX Refinements from User Feedback](./the-making-of-a-dashboard-part4.md)
+* [Part 4. UI/UX Refinements from Stakeholder Feedback](./the-making-of-a-dashboard-part4.md)
 
 ## The Overall Architecture of the Dashboard App
 

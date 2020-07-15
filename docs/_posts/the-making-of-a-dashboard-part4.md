@@ -11,7 +11,7 @@ title: The Making of a Dashboard - Part 4
 date: 2020-07-13
 author: Paul Xu
 featuredimg: "/datascience-blog/assets/img/first-prototype.png"
-summary: UI/UX refinements from user feedback.
+summary: UI/UX refinements from stakeholder feedback.
 
 ---
 In [the previous post](https://digicosmos86.github.io/datascience-blog/2020/07/10/the-making-of-a-dashboard-1/) we discussed general design patterns that put Vue and d3 together. This post will focus on how we improved the UI/UX design of the first prototype (shown above) according to the feedback from the UWRI team and the rest of The Policy Lab team.  We will also discuss the improvements that made the site faster and more responsive.
@@ -37,7 +37,7 @@ Out goes prototype v0.01, in comes Prototype v0.1 (music...)
 
 ![dashboard screenshot with annotations](/datascience-blog/assets/img/dashboard-annotated.png)
 
-The above image shows the improvements that we made to the very first prototype of the dashboard after receiving user feedback. Some of the major ones are:
+The above image shows the improvements that we made to the very first prototype of the dashboard after receiving stakeholder feedback. Some of the major ones are:
 
 1. **Layout:** We switched to displaying the two charts horizontally to make better use of the space on the page. That way the interactions between the visualizations are more visible. This design is also optimized for 16:9 screen ratios that most laptops use.
 2. **More context:** The addition of chart titles, subtitles, explanatory texts, and notes give the users more context of what they are looking at, and the range of data that are being visualized. A bit redundancy here improves readability and clarity.

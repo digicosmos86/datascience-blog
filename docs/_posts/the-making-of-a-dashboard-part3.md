@@ -20,7 +20,7 @@ Links to other posts in the series:
 
 * [Part 1. Background and Decisions on Tech Stack](./the-making-of-a-dashboard-part1.md)
 * [Part 2. Building the Skeleton of the App with Vue.js](./the-making-of-a-dashboard-part2.md)
-* [Part 4. UI/UX Refinements from User Feedback](./the-making-of-a-dashboard-part4.md)
+* [Part 4. UI/UX Refinements from Stakeholder Feedback](./the-making-of-a-dashboard-part4.md)
 
 ## General Design Patterns
 
@@ -97,7 +97,7 @@ d3 provides a `transition` function that allows smooth transition animations whe
 The solution to this is to tell d3 to hold the points on both ends of the area charts, these points can only go up and down. Then the rest of the algorithm will figure out how to interpolate the positions of other points, so that the transition looks better. We used the `d3-interpolate-path` library for this task. To use this library, first install it with npm.
 
 ``` bash
-    npm install -s d3-interpolate-path
+npm install -s d3-interpolate-path
 ```
 
 Then, import the library to the code for stacked area chart with:
@@ -184,4 +184,4 @@ This might cause some unexpected bugs. My recommendation is to use `moment.js` f
 
 In this post we discussed in details the designs that make d3 and Vue work in harmony and the gotchas in building the data visualizations. Based on these ideas, we created a first prototype for the UWRI team and internally for the rest of The Policy Lab for their feedback. The next post will discuss the UI/UX improvement we made to the dashboard based on the feedback that we received.
 
-[Part 4. UI/UX Refinements from User Feedback](./the-making-of-a-dashboard-part4.md)
+[Part 4. UI/UX Refinements from Stakeholder Feedback](./the-making-of-a-dashboard-part4.md)

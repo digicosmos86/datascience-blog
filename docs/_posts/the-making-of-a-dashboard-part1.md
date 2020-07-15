@@ -20,7 +20,7 @@ This is the first of a series of technical blog posts that document how [The Pol
 
 * [Part 2. Building the Skeleton of the App with Vue.js](./the-making-of-a-dashboard-part2.md)
 * [Part 3. Rendering the Visualizations with d3.js](./the-making-of-a-dashboard-part3.md)
-* [Part 4. UI/UX Refinements from User Feedback](./the-making-of-a-dashboard-part4.md)
+* [Part 4. UI/UX Refinements from Stakeholder Feedback](./the-making-of-a-dashboard-part4.md)
 
 ## Background of the project
 
