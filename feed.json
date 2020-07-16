@@ -1,6 +1,6 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "Paul Xu's data science blog",
+    "title": "Paul Xu",
     "home_page_url": "https://digicosmos86.github.io/datascience-blog",
     "feed_url": "https://digicosmos86.github.io/datascience-blog/feed.json",
     "description": "Blogs by Paul Xu, data scientist at The Policy Lab at Brown University",

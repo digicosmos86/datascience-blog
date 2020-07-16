@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://digicosmos86.github.io/datascience-blog</id>
-    <title>Paul Xu&apos;s data science blog</title>
-    <updated>2020-07-16T15:26:32.305Z</updated>
+    <title>Paul Xu</title>
+    <updated>2020-07-16T15:38:10.119Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://digicosmos86.github.io/datascience-blog"/>
     <link rel="self" href="https://digicosmos86.github.io/datascience-blog/feed.atom"/>
