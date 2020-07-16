@@ -21,12 +21,12 @@
             "date_modified": "2020-07-10T00:00:00.000Z"
         },
         {
-            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/11/the-making-of-a-dashboard-part3/",
-            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/11/the-making-of-a-dashboard-part3/",
-            "title": "The Making of a Dashboard - Part 3",
-            "summary": "Rendering the visualizations with d3.js.",
-            "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/stackbarchart.gif",
-            "date_modified": "2020-07-11T00:00:00.000Z"
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/15/forget-about-matplotlib-you-should-be-using-altair/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/15/forget-about-matplotlib-you-should-be-using-altair/",
+            "title": "Forget about matplotlib. You should be using Altair",
+            "summary": "Grammar of data visualization coming to Python",
+            "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/visualization-3.png",
+            "date_modified": "2020-07-15T00:00:00.000Z"
         },
         {
             "id": "https://digicosmos86.github.io/datascience-blog/2020/07/13/the-making-of-a-dashboard-part4/",
@@ -35,6 +35,14 @@
             "summary": "UI/UX refinements from stakeholder feedback.",
             "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/dashboard-annotated.png",
             "date_modified": "2020-07-13T00:00:00.000Z"
+        },
+        {
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/11/the-making-of-a-dashboard-part3/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/11/the-making-of-a-dashboard-part3/",
+            "title": "The Making of a Dashboard - Part 3",
+            "summary": "Rendering the visualizations with d3.js.",
+            "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/stackbarchart.gif",
+            "date_modified": "2020-07-11T00:00:00.000Z"
         }
     ]
 }
