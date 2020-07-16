@@ -6,7 +6,6 @@
           <div class="container">
             <NavLink link="/" class="navbar-brand">
               <img :src="$withBase($themeConfig.logo)" />
-              {{ $site.title }}
             </NavLink>
             <button
               class="navbar-toggler"

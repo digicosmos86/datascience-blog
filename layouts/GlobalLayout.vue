@@ -5,6 +5,7 @@
       :is-open="isMobileHeaderOpen"
       @toggle-sidebar="isMobileHeaderOpen = !isMobileHeaderOpen"
     />
+    <Profile />
     <div class="container wrapmain" @click="isMobileHeaderOpen = false">
       <DefaultGlobalLayout />
     </div>
@@ -17,6 +18,7 @@ import GlobalLayout from '@app/components/GlobalLayout.vue'
 import Header from '@theme/components/Header.vue'
 import MobileHeader from '@theme/components/MobileHeader.vue'
 import Footer from '@theme/components/Footer.vue'
+import Profile from '@theme/components/Profile.vue'
 
 export default {
   components: {
@@ -24,6 +26,7 @@ export default {
     Header,
     MobileHeader,
     Footer,
+    Profile,
   },
 
   data() {
