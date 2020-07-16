@@ -31,6 +31,7 @@
                 </li>
                 <SearchBox />
                 <Feed />
+                <Github style="margin-left: 0.5rem;" />
               </ul>
             </div>
           </div>
@@ -43,9 +44,10 @@
 <script>
 import SearchBox from '@SearchBox'
 import Feed from './Feed'
+import Github from './Github.vue'
 
 export default {
-  components: { SearchBox, Feed },
+  components: { SearchBox, Feed, Github },
 }
 </script>
 

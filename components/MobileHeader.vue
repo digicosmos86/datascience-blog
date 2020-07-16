@@ -23,6 +23,9 @@
           <li class="mobile-nav-item">
             <Feed />
           </li>
+          <li class="mobile-nav-item">
+            <Github />
+          </li>
         </ul>
       </div>
     </div>
@@ -32,11 +35,13 @@
 <script>
 import { MenuIcon, XIcon } from 'vue-feather-icons'
 import Feed from './Feed'
+import Github from './Github'
 export default {
   components: {
     MenuIcon,
     XIcon,
     Feed,
+    Github,
   },
   props: {
     isOpen: {

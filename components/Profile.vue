@@ -8,7 +8,8 @@
       <span>Data Scientist</span> | The Policy Lab at Brown University
     </div>
     <div class="passion">
-      Data Visualization - Machine Learning - Causal Inference - Web Development
+      Data Visualization - Machine Learning - GIS Mapping - Causal Inference -
+      Web Development
     </div>
   </div>
 </template>
@@ -25,6 +26,8 @@ export default {
 .banner
   text-align: center
   margin-bottom: 40px
+  padding-left: 20px
+  padding-right: 20px
 
 .px-avatar img
   width: 150px

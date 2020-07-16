@@ -18,6 +18,10 @@ module.exports = themeConfig => {
         text: 'Tags',
         link: '/tag/',
       },
+      {
+        text: 'About',
+        link: 'https://thepolicylab.brown.edu/team/paul-xu/',
+      },
     ],
     summary: themeConfig.summary === undefined ? true : themeConfig.summary,
     summaryLength:
