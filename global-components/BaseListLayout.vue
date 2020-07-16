@@ -1,5 +1,6 @@
 <template>
   <div id="">
+    <Profile />
     <div
       class="card-panel-content row"
       itemscope
@@ -98,12 +99,16 @@
 
 import Vue from 'vue'
 import dayjs from 'dayjs'
+import Profile from '../components/Profile.vue'
 import {
   Pagination,
   SimplePagination,
 } from '@vuepress/plugin-blog/lib/client/components'
 
 export default {
+  components: {
+    Profile,
+  },
   data() {
     return {
       paginationComponent: null,

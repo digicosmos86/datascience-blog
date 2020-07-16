@@ -3,7 +3,7 @@
     <div class="mobile-header-bar">
       <div class="mobile-header-title">
         <NavLink link="/" class="mobile-home-link navbar-brand"
-          ><img :src="$withBase($themeConfig.logo)" /> {{ $site.title }}
+          ><img :src="$withBase($themeConfig.logo)" />
         </NavLink>
         <component
           :is="isOpen ? 'XIcon' : 'MenuIcon'"
