@@ -25,7 +25,7 @@
             "url": "https://digicosmos86.github.io/datascience-blog/2020/07/15/forget-about-matplotlib-you-should-be-using-altair/",
             "title": "Forget about matplotlib. You should be using Altair",
             "summary": "Grammar of data visualization coming to Python",
-            "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/visualization-3.png",
+            "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/visualization-3.png \"An example of an altair chart\"",
             "date_modified": "2020-07-15T00:00:00.000Z"
         },
         {
