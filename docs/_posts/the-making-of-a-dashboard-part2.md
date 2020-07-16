@@ -74,10 +74,10 @@ async created() {
 
 A few observations on the above code:
 
-1. Data loading happens in the `created()` [lifecycle method](https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle) of the root component, which means the data will be loaded when the root component is being created. We can make this method `async` because we are using `await` in the function body.
-2. In d3 v5, data loading methods such as `d3.csv` and `d3.json` return `Promise`s.  `Promise.all()` takes an array of `Promise`s and returns a `Promise` that resolves when all of the promises in the array are resolved. This ensures that each of the function calls in the array is executed concurrently.
-3. `await` can be used with any function that returns a `Promise`. It blocks the execution of the code until the promise is resolved.
-4. We also used the ES6 array deconstruction syntax to assign the result of `Promise.all()` function to individual variable to be referred to later.
+1. Data loading happens in the `created()` [lifecycle method](https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle) of the root component, which means the data will be loaded when the root component is being created. We can make this method `async` because we are using `await` in the function body with the ES8 `async/await` syntax.
+2. In d3 v5, data loading methods such as `d3.csv` and `d3.json` return `Promise`s.  `Promise.all()` takes an array of `Promise`s and returns a `Promise` that resolves when all of the promises in the array are resolved. This ensures that each of the function calls in the array is executed concurrently. 
+3. We can `await` on  any function that returns a `Promise`, because `async/await` is basically syntactic sugar that makes it easier to work with functions that return `Promise`s.
+4. We also used the array deconstruction syntax to assign the result of `Promise.all()` function to individual variable to be referred to later.
 
 ### Filter controls with `Vue-Formulate`
 
