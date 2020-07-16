@@ -42,7 +42,7 @@ alt.Chart(cars).mark_point().encode(
 )
 ```
 
-![](/datascience-blog/assets/img/visualization-3.png)
+![altair example](/datascience-blog/assets/img/visualization-3.png "An example of an altair chart")
 
 This code is very expresive. You tell altair that you need to use the `point` as marks, You want to map (encode) `Miles_per_Gallon` as the X-axis value, `Horsepower` as Y-axis value, and `Origin` as the colors of the marks. Note that the `:Q`, `:N` are `altair` shorthands for `quantitative` and `nominal/categorical` data types. Very clear and concise.
 
@@ -55,7 +55,7 @@ cars <- read.csv("cars.csv") # I had to get the same dataset into R
 ggplot(cars, aes(x = Miles_per_Gallon, y=Horsepower, colour=Origin)) + geom_point()
 ```
 
-![](/datascience-blog/assets/img/ggplot.png)
+![ggplot2 chart](/datascience-blog/assets/img/ggplot.png "An example of a ggplot2 chart")
 
 Almost the same ideas! I would say the Python code is slightly more readable, but the point is that the familiar "grammar" in `ggplot2` is now in Python!
 
@@ -65,7 +65,7 @@ Almost the same ideas! I would say the Python code is slightly more readable, bu
 
 Since the looks of visualizations can be customized and themed (I will look into that aspect in the next section), I am only comparing default aethetics here. I have long disliked the `ggplot2`'s default color palette. `Plotly` (below) has a similar default look. Both have colored backgrounds for the chart region that reduces the contrast of the chart elements and arguably make the chart slightly more difficult to read. `altair`'s default look, on the other hand, look very clean. Default color stand out against the white background. The only thing that I don't like is the grid which can make the chart look busy, but that can be easily adjusted with configuration, which segues to the next section of customizability.
 
-![](/datascience-blog/assets/img/newplot-1.png)
+![A Plotly chart](/datascience-blog/assets/img/newplot-1.png "An example of a Plotly chart")
 
 ### 2. Theming and customization
 
@@ -73,7 +73,7 @@ Almost all of the libraries mentioned in this post support theming and extensive
 
 When it comes to customization, this is where `altair` truly shines. While all these libraries are deeply customizable, these customization options could be buried in their extensive APIs, which can be difficult to find. With `altair`, configurations of each element of the charts, such as axes, makrs, titles, and headers, are logically organized together and clearly documented both in `altair` and `vega-lite` documentations. Foe example, you can easily find the options for `titleFontSize` or `subtitleFontWeight` that you can adjust, within the `configure_title()` function exposed by the `Chart` object that you create each time you build a new visualization. After you use these settings, you can save them in a default config object, which is simply a JSON that controls how each element should look by default, and you can use that config object as your default theme. \[This Medium\] post has a lot more details on default theming in `altair` based on data visualization guidelines.
 
-Below is a graph that I created recently for work with `altair` using my own defalt theme after a short learning curve.
+Below is a graph that I created recently for work with `altair` using my own default theme after a short learning curve, which looks so good I am ready to include into a publication.
 
 ![](/datascience-blog/assets/img/visualization-8.png)
 
@@ -88,5 +88,7 @@ Although the ideal working environment for `altair` is Jupyter notebooks, the da
 ## When not to use `altair`?
 
 `altair` is not designed for larger datasets. It saves all data it uses into a `vega-lite` schema, which is then rendered. If you have a large data file with millions of datapoints, then `altair` is not for you. You might want to look into `plotly` which has great WebGL support, or `kepler.gl` if you are doing large-scale geospatial analysis.
+
+Another issue with `altair` and all `vega`-based visualizations is that there are very limited options for animations. While `plotly` has [some pretty cool animation features](https://plotly.com/python/animations/), if cool transitions are what you are looking for, maybe you should look at those JavaScript charting libraries such as `c3.js`, `chartjs`, or `apex charts`. Plain D3 gives you maximal flexibility at the cost of a ton of developer time.
 
 In any other situation, `altair` will be a worthy addtion to your tool chain. Now you can even set altair as pandas backend for `pandas` ([details here](https://github.com/altair-viz/altair_pandas)) for quick exploratory analyses. You can also use `StreamLit` with `altair` to build data dashboards. My next blog post will be on how to use `altair` to create beautiful interactive maps with `geojson` and `topojson`. Please stay tuned!
