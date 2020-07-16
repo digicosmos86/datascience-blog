@@ -13,7 +13,7 @@ featuredimg: "/datascience-blog/assets/img/initial-211-dashboard-sketch-v1-1.jpg
 summary: Sketching the skeleton of the dashboard.
 
 ---
-In the previous [post](https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/) post we covered the background and the decisions on what tech stacks we are using for the [United Way Rhode Island 211 dashboard](https://thepolicylab.github.io). This post will describe how we used `Vue.js` to build the architecture based on the awesome sketch of [Ben Guhin Delphine](https://thepolicylab.brown.edu/team/ben-guhin-delphine/) in the featured image above.
+In the previous [post](https://digicosmos86.github.io/datascience-blog/2020/07/09/making-of-a-dashboard-part1/) post we covered the background and the decisions on what tech stacks we are using for the [United Way Rhode Island 211 dashboard](https://thepolicylab.github.io/UW-211). This post will describe how we used `Vue.js` to build the architecture based on the awesome sketch of [Ben Guhin Delphine](https://thepolicylab.brown.edu/team/ben-guhin-delphine/) in the featured image above.
 
 Links to other posts in this series:
 
