@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Paul Xu\'s data science blog',
+  title: 'Paul Xu',
   base: '/datascience-blog/',
   dest: 'public',
   description: 'Blogs by Paul Xu, data scientist at The Policy Lab at Brown University',
