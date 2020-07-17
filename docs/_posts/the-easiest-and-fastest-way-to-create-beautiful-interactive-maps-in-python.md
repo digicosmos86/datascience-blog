@@ -99,3 +99,29 @@ With this step, we now have a DataFrame of all municipalities in Rhode Island an
 This step is basically to join the population data with the `topojson` file. In the `topojson` file, each shape is associated with an `id` which is the upper-case name of the municipality it represents. We would be using this `id` as the key to look up for the corresponding population in the DataFrame that we just created. Normally a join with pandas would solve the problem. The problem here, though, is that we don't have two DataFrames here. This is where `altair`'s data transformations come in handy. The data transformation API are bindings to `vega`'s powerful data transformations on JavaScript datasets. In Python, the data transformation API can operate between data saved in JSON format and DataFrame formats, which is very powerful.
 
 Let's slightly modify the code that we created previously to map the population to the color of each shape:
+
+``` python
+alt.Chart(ri_municipalities).mark_geoshape(
+    stroke='#fff',
+    strokeWidth=1
+).encode(
+    color='Population:Q'
+).transform_lookup(
+    lookup='id',
+    from_=alt.LookupData(data=ri_pops, key='City', fields=['Population'])
+).properties(
+	width=600,
+    height=800,
+    title="Rhode Island City Population"
+)
+```
+
+A few things happened here: first, we performed a "lookup transformation", which basically works like SQL joins. For each `id` in the `topojson`, we lookup the data in the `ri_pops` DataFrame, find matching values in the `City` (`key`) column, and bringing the `Population` values. Then the `Population` values can be considered an added column in the original data.
+
+Next, we "encode" the population values as the color for each shape. The ":Q" shorthand specifies that these are quantitaive (continuous) values, so `altair` will use a continuous scale for the colors. We now have a map with colors mapped to each tile! By the way, you can now remove the "fill" argument to the "mark_geoshape()" attribute since we are no longer using that.
+
+### Step 4. Modify color scales
+
+
+
+### Step 5. Add interactive tooltips
