@@ -28,3 +28,4 @@ fields:
   label: summary
 pages:
 - docs/_posts/forget-about-matplotlib.you-should-be-using-altair.md
+- docs/_posts/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python.md
