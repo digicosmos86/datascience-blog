@@ -2,19 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://digicosmos86.github.io/datascience-blog</id>
     <title>Paul Xu</title>
-    <updated>2020-07-17T19:45:53.813Z</updated>
+    <updated>2020-07-17T19:58:23.341Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://digicosmos86.github.io/datascience-blog"/>
     <link rel="self" href="https://digicosmos86.github.io/datascience-blog/feed.atom"/>
     <subtitle>Blogs by Paul Xu, data scientist at The Policy Lab at Brown University</subtitle>
-    <entry>
-        <title type="html"><![CDATA[The easiest and fastest way to create beautiful interactive maps in Python]]></title>
-        <id>https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/</id>
-        <link href="https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/">
-        </link>
-        <updated>2020-07-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Create any map that you can use anywhere]]></summary>
-    </entry>
     <entry>
         <title type="html"><![CDATA[The Making of a Dashboard - Part 1]]></title>
         <id>https://digicosmos86.github.io/datascience-blog/2020/07/09/the-making-of-a-dashboard-part1/</id>
@@ -38,6 +30,14 @@
         </link>
         <updated>2020-07-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Grammar of data visualization coming to Python]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The easiest and fastest way to create beautiful interactive maps in Python]]></title>
+        <id>https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/</id>
+        <link href="https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/">
+        </link>
+        <updated>2020-07-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Create any map that you can use anywhere]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[The Making of a Dashboard - Part 3]]></title>

@@ -6,13 +6,6 @@
     "description": "Blogs by Paul Xu, data scientist at The Policy Lab at Brown University",
     "items": [
         {
-            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/",
-            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/",
-            "title": "The easiest and fastest way to create beautiful interactive maps in Python",
-            "summary": "Create any map that you can use anywhere",
-            "date_modified": "2020-07-17T00:00:00.000Z"
-        },
-        {
             "id": "https://digicosmos86.github.io/datascience-blog/2020/07/09/the-making-of-a-dashboard-part1/",
             "url": "https://digicosmos86.github.io/datascience-blog/2020/07/09/the-making-of-a-dashboard-part1/",
             "title": "The Making of a Dashboard - Part 1",
@@ -34,6 +27,13 @@
             "summary": "Grammar of data visualization coming to Python",
             "image": "https://digicosmos86.github.io/datascience-blog/datascience-blog/assets/img/visualization-3.png \"An example of an altair chart\"",
             "date_modified": "2020-07-15T00:00:00.000Z"
+        },
+        {
+            "id": "https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/",
+            "url": "https://digicosmos86.github.io/datascience-blog/2020/07/17/the-easiest-and-fastest-way-to-create-beautiful-interactive-maps-in-python/",
+            "title": "The easiest and fastest way to create beautiful interactive maps in Python",
+            "summary": "Create any map that you can use anywhere",
+            "date_modified": "2020-07-17T00:00:00.000Z"
         },
         {
             "id": "https://digicosmos86.github.io/datascience-blog/2020/07/11/the-making-of-a-dashboard-part3/",
