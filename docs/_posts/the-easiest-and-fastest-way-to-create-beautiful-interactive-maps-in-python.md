@@ -81,19 +81,21 @@ wiki_page = requests.get('https://en.wikipedia.org/wiki/List_of_municipalities_i
 ri_table = pd.read_html(wiki_page)[0]
 ri_pops = ri_table.iloc[0:39, [0, 7]] # get rid of the last (total) row
 ri_pops.columns = ['City', 'Population']
+ri_pops["City"] = ri_pops["City"].str.upper()
 ri_pops.head()
 ```
 
-```
-City	Population
-0	Barrington	16819
-1	Bristol	22469
-2	Burrillville	15796
-3	Central Falls	18928
-4	Charlestown	7859
-```
+    City	Population
+    BARRINGTON	16819
+    BRISTOL	22469
+    BURRILLVILLE	15796
+    CENTRAL FALLS	18928
+    CHARLESTOWN	7859
 
 With this step, we now have a DataFrame of all municipalities in Rhode Island and their populations. The next step would be to `map` or `encode` this data to the map.
 
 ### Step 3. Encode data to the map
 
+This step is basically to join the population data with the `topojson` file. In the `topojson` file, each shape is associated with an `id` which is the upper-case name of the municipality it represents. We would be using this `id` as the key to look up for the corresponding population in the DataFrame that we just created. Normally a join with pandas would solve the problem. The problem here, though, is that we don't have two DataFrames here. This is where `altair`'s data transformations come in handy. The data transformation API are bindings to `vega`'s powerful data transformations on JavaScript datasets. In Python, the data transformation API can operate between data saved in JSON format and DataFrame formats, which is very powerful.
+
+Let's slightly modify the code that we created previously to map the population to the color of each shape:
