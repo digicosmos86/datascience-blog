@@ -21,7 +21,7 @@ If you are like me, you would be fascinated by the beautiful interactive maps (c
 
 ## Get Started Plotting!
 
-The easiest way to get started with `altair` is in a `jupyter notebook` environment. You can start a notebook in [Google Colab](https://colab.research.google.com/) and follow along. If you want to code locally, I recommend `jupyter lab` simply because `altair` works in Jupyter Lab by default. Follow these commands to set up a virtual environment and start Jupyter Lab. If you prefer other IDEs, please refer to [this article](https://altair-viz.github.io/user_guide/display_frontends.html).
+The easiest way to get started with `altair` is in a `jupyter notebook` environment. You can start a notebook in [Google Colab](https://colab.research.google.com/) and follow along. I have created [this Colab notebook](https://colab.research.google.com/drive/1YopGikLVbD766fPS_tuWlj2bzpSMB2c0?usp=sharing) with all the code that you are going to see. If you want to code locally, I recommend `jupyter lab` simply because `altair` works in Jupyter Lab by default. Follow these commands to set up a virtual environment and start Jupyter Lab. If you prefer other IDEs, please refer to [this article](https://altair-viz.github.io/user_guide/display_frontends.html) from the `altair` documentation.
 
 ### Step 1. Plot a base map
 
@@ -39,6 +39,8 @@ ri_municipalities = alt.topo_feature(ri_topo_url, 'ri')
 
 alt.Chart(ri_municipalities).mark_geoshape()
 ```
+
+![](/datascience-blog/assets/img/visualization-4.png)
 
 Voila! A map of Rhode Island should show up. It is that easy! Of course, we are not mapping any data to it, but we will get to that soon.
 
@@ -61,6 +63,8 @@ alt.Chart(ri_municipalities).mark_geoshape(
     title="Map of Rhode Island Municipalities"
 )
 ```
+
+![](/datascience-blog/assets/img/visualization-5.png)
 
 Notice that we can pass these options directly to the `mark_geoshape()` method. Here we are **specifying** or **assigning** the properties of the shapes, not **mapping** or **encoding** the properties with data. Next, we are going to encode some data to the map.
 
@@ -116,12 +120,78 @@ alt.Chart(ri_municipalities).mark_geoshape(
 )
 ```
 
+![](/datascience-blog/assets/img/visualization-6.png)
+
 A few things happened here: first, we performed a "lookup transformation", which basically works like SQL joins. For each `id` in the `topojson`, we lookup the data in the `ri_pops` DataFrame, find matching values in the `City` (`key`) column, and bringing the `Population` values. Then the `Population` values can be considered an added column in the original data.
 
 Next, we "encode" the population values as the color for each shape. The ":Q" shorthand specifies that these are quantitaive (continuous) values, so `altair` will use a continuous scale for the colors. We now have a map with colors mapped to each tile! By the way, you can now remove the "fill" argument to the "mark_geoshape()" attribute since we are no longer using that.
 
-### Step 4. Modify color scales
+### Step 4. Customize color scales
 
+The results already looks very good but if you don't like the default color scales, you can customize the color scale according to your preferences. This is also very easy to do in `altair` but involves diving a bit more into the inner workings of `altair`.
 
+``` python
+alt.Chart(ri_municipalities).mark_geoshape(
+    stroke='#fff',
+    strokeWidth=1
+).encode(
+    color=alt.Color('Population:Q', scale=alt.Scale(interpolate='rgb', scheme='blues'))
+).transform_lookup(
+    lookup='id',
+    from_=alt.LookupData(data=ri_pops, key='City', fields=['Population'])
+).properties(
+	  width=600,
+    height=800,
+    title="Rhode Island City Population"
+)
+```
+
+![](/datascience-blog/assets/img/visualization-7.png)
+
+The only thing that changed was what was passed to the `color` argument of the encode method. Turns out, you can directly pass a string "shorthand" to this argument, and `altair` will generate the rest by default. However, you can also directly specify all the options in the mapping, such as the scale it uses, and how the numerical values are mapped to colors, and which color schemes are used. Here `alt.Color()` and `alt.Scale()` are wrappers that wrap all of the options and keep these options neatly organized. Here we switched to the "blues" color scheme. You can use any scheme that `vega` provides ([documentation here](https://vega.github.io/vega/docs/schemes/)), which is also what is available in `d3,js`. You can also specify a scheme yourself by providing a list of two CSS-compatible color values to the `range` parameter of `alt.Scale()`.
 
 ### Step 5. Add interactive tooltips
+
+The last step in this post is to make this map interactive by adding tooltips. This is also very easy:
+
+``` python
+alt.Chart(ri_municipalities).mark_geoshape(
+    stroke='#fff',
+    strokeWidth=1
+).encode(
+    color=alt.Color('Population:Q', scale=alt.Scale(interpolate='rgb', scheme='blues')),
+    tooltip=['id:N', 'Population:Q']
+).transform_lookup(
+    lookup='id',
+    from_=alt.LookupData(data=ri_pops, key='City', fields=['Population'])
+).properties(
+	width=600,
+    height=800,
+    title="Rhode Island City Population"
+)
+```
+
+That's it! When you hover over each shape a tooltip will show up and display the values of the `id` and `Population` fields. You can, of course, deeply customize these tooltips. You guessed it. You can use `alt.Tooltip()` wrapper to provide more specifications. Here I am changing only the `id` field because I want the tooltip to display `City` as the title rather than \`id':
+
+``` python
+	tooltip=[alt.Tooltip('id:N', title='City'), 'Population:Q']
+```
+
+### Step 6: Share your work!
+
+Can you use these beautiful maps anywhere else? For sure! You can click on the three-dot menu on the top right corner of any visualization to save the map in PNG or SVG formats. You can also use `Chart().save()` to save the chart to a plain html file with all the interactions included. Of course, because that html file loads the vega engine in JavaScript, you need to be online for the chart to render. You can also save the `vega` and `vega-lite` JSON schema to a JSON file that can be loaded by other Web apps.
+
+## Summary:
+
+In this post I covered how to use `altair` to make any map with a `topojson` or `geojson` file. We went over the following steps:
+
+1. Loading a `topojson` from a url and using `alt.topo_feature` to extract geospatial information.
+2. Creating a basemap and specifying a value vs. mapping (encoding) a value.
+3. Using "lookup transformation" to link data from another source to the `topojson`
+4. Using wrappers to provide more customizations beyond the default.
+5. Interactive tooltips.
+6. Sharing your map.
+
+I have shared the code in this post in this [Google Colab notebook](https://colab.research.google.com/drive/1YopGikLVbD766fPS_tuWlj2bzpSMB2c0?usp=sharing). Feel free to create your own copy and change the code to see what is possible with `altair`!
+
+Now you know all the basics of 'altair' mapping. In the next post, we are going to use `altair` for a real-world project - we are going to visualize Boston 311 call data with `altair`! There will be more advanced topics such as faceting and building simple dashboard with filters! Please stay tuned!
